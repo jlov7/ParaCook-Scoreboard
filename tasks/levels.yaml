@@ -1,0 +1,237 @@
+{
+  "levels": [
+    {
+      "name": "easy",
+      "hands": 2,
+      "stations": {
+        "prep": 1,
+        "stove": 1,
+        "plating": 1
+      },
+      "orders": [
+        {
+          "id": "soup",
+          "tasks": {
+            "prep_veg": {
+              "duration": 2,
+              "resources": { "hands": 1, "prep": 1 }
+            },
+            "boil": {
+              "duration": 3,
+              "resources": { "hands": 1, "stove": 1 },
+              "requires": ["prep_veg"]
+            },
+            "plate": {
+              "duration": 1,
+              "resources": { "hands": 1, "plating": 1 },
+              "requires": ["boil"]
+            }
+          }
+        },
+        {
+          "id": "salad",
+          "tasks": {
+            "chop": {
+              "duration": 2,
+              "resources": { "hands": 1, "prep": 1 }
+            },
+            "plate": {
+              "duration": 1,
+              "resources": { "hands": 1, "plating": 1 },
+              "requires": ["chop"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "medium",
+      "hands": 3,
+      "stations": {
+        "prep": 2,
+        "stove": 2,
+        "plating": 1,
+        "mixing": 1,
+        "fryer": 1
+      },
+      "orders": [
+        {
+          "id": "stirfry",
+          "tasks": {
+            "prep_veg": {
+              "duration": 3,
+              "resources": { "hands": 1, "prep": 1 }
+            },
+            "prep_sauce": {
+              "duration": 2,
+              "resources": { "hands": 1, "mixing": 1 }
+            },
+            "heat_wok": {
+              "duration": 2,
+              "resources": { "hands": 1, "stove": 1 }
+            },
+            "cook": {
+              "duration": 4,
+              "resources": { "hands": 1, "stove": 1 },
+              "requires": ["prep_veg", "prep_sauce", "heat_wok"]
+            },
+            "finish": {
+              "duration": 1,
+              "resources": { "hands": 1, "plating": 1 },
+              "requires": ["cook"]
+            }
+          }
+        },
+        {
+          "id": "burger_combo",
+          "tasks": {
+            "form_patties": {
+              "duration": 3,
+              "resources": { "hands": 1, "prep": 1 }
+            },
+            "slice_toppings": {
+              "duration": 2,
+              "resources": { "hands": 1, "prep": 1 }
+            },
+            "toast_buns": {
+              "duration": 2,
+              "resources": { "hands": 1, "stove": 1 }
+            },
+            "grill": {
+              "duration": 4,
+              "resources": { "hands": 1, "stove": 1 },
+              "requires": ["form_patties"]
+            },
+            "toss": {
+              "duration": 1,
+              "resources": { "hands": 1, "plating": 1 },
+              "requires": ["grill", "slice_toppings", "toast_buns"]
+            }
+          }
+        },
+        {
+          "id": "salad_plate",
+          "tasks": {
+            "wash_greens": {
+              "duration": 2,
+              "resources": { "hands": 1, "prep": 1 }
+            },
+            "toast_nuts": {
+              "duration": 2,
+              "resources": { "hands": 1, "stove": 1 }
+            },
+            "prep_dressing": {
+              "duration": 2,
+              "resources": { "hands": 1, "mixing": 1 }
+            },
+            "toss": {
+              "duration": 1,
+              "resources": { "hands": 1, "mixing": 1 },
+              "requires": ["wash_greens", "prep_dressing"]
+            },
+            "plate": {
+              "duration": 1,
+              "resources": { "hands": 1, "plating": 1 },
+              "requires": ["toss", "toast_nuts"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "hard",
+      "hands": 4,
+      "stations": {
+        "prep": 2,
+        "stove": 2,
+        "plating": 2,
+        "oven": 1,
+        "fryer": 1,
+        "mixing": 1
+      },
+      "orders": [
+        {
+          "id": "tasting",
+          "tasks": {
+            "mise_1": {
+              "duration": 2,
+              "resources": { "hands": 1, "prep": 1 }
+            },
+            "mise_2": {
+              "duration": 2,
+              "resources": { "hands": 1, "prep": 1 }
+            },
+            "cook_1": {
+              "duration": 3,
+              "resources": { "hands": 1, "stove": 1 },
+              "requires": ["mise_1"]
+            },
+            "cook_2": {
+              "duration": 4,
+              "resources": { "hands": 1, "oven": 1 },
+              "requires": ["mise_2"]
+            },
+            "finish": {
+              "duration": 2,
+              "resources": { "hands": 1, "plating": 1 },
+              "requires": ["cook_1", "cook_2"]
+            }
+          }
+        },
+        {
+          "id": "main_course",
+          "tasks": {
+            "prep_protein": {
+              "duration": 3,
+              "resources": { "hands": 1, "prep": 1 }
+            },
+            "marinate": {
+              "duration": 2,
+              "resources": { "hands": 1, "mixing": 1 },
+              "requires": ["prep_protein"]
+            },
+            "sear": {
+              "duration": 4,
+              "resources": { "hands": 1, "stove": 1 },
+              "requires": ["marinate"]
+            },
+            "oven_finish": {
+              "duration": 3,
+              "resources": { "hands": 1, "oven": 1 },
+              "requires": ["sear"]
+            },
+            "plate": {
+              "duration": 2,
+              "resources": { "hands": 1, "plating": 1 },
+              "requires": ["oven_finish"]
+            }
+          }
+        },
+        {
+          "id": "dessert",
+          "tasks": {
+            "mix_batter": {
+              "duration": 3,
+              "resources": { "hands": 1, "mixing": 1 }
+            },
+            "bake": {
+              "duration": 5,
+              "resources": { "hands": 1, "oven": 1 },
+              "requires": ["mix_batter"]
+            },
+            "glaze": {
+              "duration": 2,
+              "resources": { "hands": 1, "prep": 1 },
+              "requires": ["bake"]
+            },
+            "plate": {
+              "duration": 1,
+              "resources": { "hands": 1, "plating": 1 },
+              "requires": ["glaze"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

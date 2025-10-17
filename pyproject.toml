@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=65", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "paracook-scoreboard"
+version = "0.1.0"
+description = "ParaCook Scoreboard: sequential vs. concurrent planning in a kitchen simulator"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT License" }
+authors = [{ name = "ParaCook Research" }]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest"]
+viz = ["matplotlib>=3.8"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+filterwarnings = [
+  "error:::pcook"
+]
+
+[project.scripts]
+pcook="pcook.cli:main"

@@ -1,0 +1,2 @@
+scenario,level,parallel_makespan,sequential_makespan,delta_makespan,parallel_oct,sequential_oct,delta_oct,parallel_block_rate,sequential_block_rate,delta_block_rate
+paracook_results_(2_seeds),medium,16.00,21.00,-5.00,14.33,17.00,-2.67,0.00,0.06,-0.06
