@@ -9,3 +9,5 @@ dist/
 results.csv
 summary.md
 charts/
+
+.specstory/
